@@ -26,6 +26,9 @@ class PinkViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
+            self.view.backgroundColor = appdelegate.bgColor
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -207,6 +207,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-08-Dyu">
+                                <rect key="frame" x="153" y="187" width="69" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="배경색 변경"/>
+                                <connections>
+                                    <action selector="changeBackColor:" destination="jAp-rQ-R8f" eventType="touchUpInside" id="rPL-in-Rlc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pie-1y-JLN">
+                                <rect key="frame" x="107" y="270" width="162" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="AppDelegate 배경색 변경"/>
+                                <connections>
+                                    <action selector="delegateChangeBackColor:" destination="jAp-rQ-R8f" eventType="touchUpInside" id="zgH-uG-Sdd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.88584032527828982" green="0.88032722153106568" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>

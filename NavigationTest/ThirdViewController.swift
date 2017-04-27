@@ -10,14 +10,18 @@ import UIKit
 
 class ThirdViewController: UIViewController {
     
-//    var myFunc:((UIColor) -> ())? = nil
+    var myFunc:((UIColor) -> ())? = nil
 
     @IBOutlet var myTextField: UITextField!
     
     @IBAction func done(_ sender: Any) {
+        if let aFunc = myFunc {
+            aFunc(UIColor.black)
+        }
+        
         if let myDelegate = delegate, let myStr = myTextField.text {
             myDelegate.sendText(newText: myStr)
-            self.navigationController?.popViewController(animated: true)
+            let _ = self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -27,6 +31,13 @@ class ThirdViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        NotificationCenter.default.addObserver(self, selector: #selector(changeColor(Notification:)), name: NSNotification.name.init(rawValue:"CHANGE_COLOR"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeColor(notification:)), name: NSNotification.Name.init(rawValue:"CHANGE_COLOR"), object: nil)
+    }
+    
+    func changeColor(notification:NSNotification) {
+        self.view.backgroundColor = UIColor.blue
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,8 +45,8 @@ class ThirdViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func changeBackColor(_ f:(UIColor) -> ()) {
-        f(UIColor.black)
+    func changeBackColor(_ colorFunc:@escaping(UIColor) -> ()) {
+        self.myFunc = colorFunc
     }
     
 
